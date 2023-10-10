@@ -10,7 +10,7 @@ env:
   ITCHIO_USERNAME: bjornarprytz
   GAME_NAME: chain-reaction
   PROJECT_PATH: "./src/"
-  GODOT_VERSION: "4.1.0"
+  GODOT_VERSION: "4.1.2"
 
 jobs:
   export-game:

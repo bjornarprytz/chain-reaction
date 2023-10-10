@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://dj1mrnlvsltde"]
+[gd_scene load_steps=8 format=3 uid="uid://dj1mrnlvsltde"]
+
+[ext_resource type="Texture2D" uid="uid://dvdwb4cx7yrpi" path="res://assets/cracker-sheet.png" id="1_hr8ty"]
+[ext_resource type="Script" path="res://objects/bonbon.gd" id="1_wopc4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dq68d"]
+radius = 34.0147
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd5t4"]
+atlas = ExtResource("1_hr8ty")
+region = Rect2(202, 0, 97, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i0rd"]
+atlas = ExtResource("1_hr8ty")
+region = Rect2(105, 0, 97, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5uut"]
+atlas = ExtResource("1_hr8ty")
+region = Rect2(8, 0, 97, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8yuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd5t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i0rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5uut")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_wopc4")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_dq68d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 2)
+sprite_frames = SubResource("SpriteFrames_o8yuc")
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="input_event" from="Area2D2" to="." method="_on_area_2d_2_input_event"]

@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://cmbxw127oxqql"]
+[gd_scene load_steps=7 format=3 uid="uid://cmbxw127oxqql"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_3o2uv"]
+[ext_resource type="PackedScene" uid="uid://cpekmao0horc3" path="res://objects/guy.tscn" id="1_vgmos"]
+[ext_resource type="PackedScene" uid="uid://dj1mrnlvsltde" path="res://objects/bonbon.tscn" id="2_tg0xf"]
+[ext_resource type="PackedScene" uid="uid://7i5g4lfjkddw" path="res://objects/shelter.tscn" id="3_wj6tr"]
+
+[sub_resource type="SystemFont" id="SystemFont_kx6pe"]
+
+[sub_resource type="Theme" id="Theme_6nf4g"]
+default_font = SubResource("SystemFont_kx6pe")
+default_font_size = 200
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3o2uv")
+
+[node name="guy" parent="." instance=ExtResource("1_vgmos")]
+position = Vector2(372, 291)
+
+[node name="Bonbons" type="Node" parent="."]
+
+[node name="Node2D" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(470, 530)
+
+[node name="Node2D2" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(129, 191)
+
+[node name="Node2D3" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(492, 99)
+
+[node name="Node2D4" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(941, 398)
+
+[node name="Node2D5" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(646, 292)
+
+[node name="Node2D6" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(161, 549)
+
+[node name="Node2D7" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(253, 42)
+
+[node name="Shelter" type="Node" parent="."]
+
+[node name="shelter" parent="Shelter" instance=ExtResource("3_wj6tr")]
+position = Vector2(781, 510)
+
+[node name="shelter2" parent="Shelter" instance=ExtResource("3_wj6tr")]
+position = Vector2(877, 139)
+
+[node name="shelter3" parent="Shelter" instance=ExtResource("3_wj6tr")]
+position = Vector2(85, 387)
+
+[node name="GameOverText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 233.0
+offset_top = 174.0
+offset_right = 961.0
+offset_bottom = 447.0
+theme = SubResource("Theme_6nf4g")
+text = "WIN"
+fit_content = true

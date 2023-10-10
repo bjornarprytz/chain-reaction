@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpekmao0horc3"]
+[gd_scene load_steps=9 format=3 uid="uid://cpekmao0horc3"]
 
 [ext_resource type="Texture2D" uid="uid://cj1qn2kgmsc2r" path="res://assets/happy.png" id="1_naacp"]
 [ext_resource type="Script" path="res://objects/guy.gd" id="1_who50"]
 [ext_resource type="Texture2D" uid="uid://ie4fi5lcmpei" path="res://assets/flinch.png" id="2_amxp7"]
 [ext_resource type="Texture2D" uid="uid://ckbepm24x2fvw" path="res://assets/startled.png" id="3_2rky1"]
 [ext_resource type="Texture2D" uid="uid://c07ra1uss4vwv" path="res://assets/winner.png" id="4_4lu3v"]
+[ext_resource type="AudioStream" uid="uid://bjg220chpnbyg" path="res://assets/yaay.wav" id="6_l5pw1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i6a6e"]
 animations = [{
@@ -27,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y0qj4"]
-radius = 61.0328
+radius = 49.0102
 
 [node name="guy" type="Node2D"]
 script = ExtResource("1_who50")
@@ -39,5 +40,15 @@ sprite_frames = SubResource("SpriteFrames_i6a6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_y0qj4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_l5pw1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -35.0
+offset_top = -81.0
+offset_right = 55.0
+offset_bottom = -51.0
+text = "Grab me!"
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://co46xnafb7tft"]
+[gd_scene load_steps=8 format=3 uid="uid://co46xnafb7tft"]
+
+[ext_resource type="Script" path="res://objects/confetti.gd" id="1_rdl25"]
+[ext_resource type="Texture2D" uid="uid://8dwu2fh4yhmj" path="res://assets/white-square.png" id="2_q4mks"]
+[ext_resource type="Texture2D" uid="uid://b44q26k8hmcsy" path="res://assets/circle.png" id="3_fdg67"]
+[ext_resource type="AudioStream" uid="uid://dm7kjrlngvq1v" path="res://assets/pkho.wav" id="3_nasxt"]
+
+[sub_resource type="Curve" id="Curve_5ykwp"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 41.6842), 0.0, 0.0, 0, 0, Vector2(0.445055, 49.2632), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_0i0ab"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmvmy"]
+radius = 65.192
 
 [node name="confetti" type="Node2D"]
+script = ExtResource("1_rdl25")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 50
+lifetime = 5.0
+explosiveness = 0.95
+randomness = 0.2
+texture = ExtResource("2_q4mks")
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 120.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+angular_velocity_curve = SubResource("Curve_5ykwp")
+damping_min = 20.0
+damping_max = 70.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+color = Color(0.278431, 0.705882, 0.662745, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_0i0ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0, 0, 0.231373)
+scale = Vector2(0.453125, 0.453125)
+texture = ExtResource("3_fdg67")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("CircleShape2D_dmvmy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nasxt")
+autoplay = true
+max_polyphony = 2
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

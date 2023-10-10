@@ -6,6 +6,7 @@ var game_over : bool = false
 
 func _ready() -> void:
 	Autoload.game_over.connect(game_over_handle)
+	
 
 func _process(delta: float) -> void:
 	if $Bonbons.get_child_count() == 0 and !game_over:

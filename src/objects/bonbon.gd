@@ -24,9 +24,7 @@ func explode():
 	queue_free()
 	var confetti = confetti_spawner.instantiate() as Node2D
 	confetti.global_position = global_position
-	get_parent().add_child(confetti)
-	# Add explosion to parent
-	# Confetti should go everywhere
+	get_parent().call_deferred("add_child", confetti)
 
 
 func _on_area_2d_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

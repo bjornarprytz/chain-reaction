@@ -8,7 +8,7 @@ extends Node2D
 func _ready() -> void:
 	particles.emitting = true
 	sound.pitch_scale = randf_range(0.9, 1.1)
-	Autoload.confetti_boom.emit()
+	Autoload.boom()
 	
 	var tween = create_tween()
 	
@@ -21,4 +21,4 @@ func _ready() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.owner is Guy:
-		Autoload.game_over.emit(false)
+		Autoload.conclude(false)

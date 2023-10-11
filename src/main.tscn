@@ -14,31 +14,58 @@ default_font_size = 200
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3o2uv")
 
-[node name="guy" parent="." instance=ExtResource("1_vgmos")]
-position = Vector2(372, 291)
-
 [node name="Bonbons" type="Node" parent="."]
 
 [node name="Node2D" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(470, 530)
+position = Vector2(578, 548)
 
 [node name="Node2D2" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(129, 191)
+position = Vector2(79, 141)
 
 [node name="Node2D3" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(492, 99)
+position = Vector2(485, 69)
 
 [node name="Node2D4" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(941, 398)
+position = Vector2(930, 494)
 
 [node name="Node2D5" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(646, 292)
+position = Vector2(796, 211)
 
 [node name="Node2D6" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(161, 549)
+position = Vector2(82, 496)
 
 [node name="Node2D7" parent="Bonbons" instance=ExtResource("2_tg0xf")]
-position = Vector2(253, 42)
+position = Vector2(258, 84)
+
+[node name="Node2D8" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(798, 574)
+
+[node name="Node2D9" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(939, 70)
+
+[node name="Node2D11" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(192, 303)
+
+[node name="Node2D12" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(698, 373)
+
+[node name="Node2D13" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(274, 598)
+
+[node name="Node2D14" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(939, 315)
+
+[node name="Node2D15" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(672, 116)
+
+[node name="Node2D16" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(406, 230)
+
+[node name="Node2D17" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(1077, 565)
+
+[node name="Node2D18" parent="Bonbons" instance=ExtResource("2_tg0xf")]
+position = Vector2(1084, 218)
 
 [node name="Shelter" type="Node" parent="."]
 
@@ -50,6 +77,9 @@ position = Vector2(877, 139)
 
 [node name="shelter3" parent="Shelter" instance=ExtResource("3_wj6tr")]
 position = Vector2(85, 387)
+
+[node name="guy" parent="." instance=ExtResource("1_vgmos")]
+position = Vector2(431, 414)
 
 [node name="GameOverText" type="RichTextLabel" parent="."]
 visible = false

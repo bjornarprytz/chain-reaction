@@ -21,6 +21,9 @@ func boom() -> void:
 	booming = false
 
 func game_over(result: bool) -> void:
+	if (Autoload.end):
+		return
+	
 	if result:
 		face.frame = 3
 		mouth.play()
